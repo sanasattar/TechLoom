@@ -1,112 +1,158 @@
-import React, { useEffect, useRef } from "react";
-import highlevel from "../assets/highlevel.mp4";
-import { Link } from "react-router-dom";
-import ParticlesComponent from "../component/ParticlesComponent";
-import { TbSettingsCheck } from "react-icons/tb";
-import { MdEditDocument } from "react-icons/md";
-import ServicesProvider from "../component/ServicesProvider";
-// import ImageSwapper from "../component/ImageSwapper";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { FaCode, FaPalette, FaChartLine, FaVideo, FaSpider, FaRocket } from 'react-icons/fa';
 
- const Services = () => {
-  const videoRef = useRef(null);
-
-  useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.playbackRate = 0.5;
-      videoRef.current.play();
+const Services = () => {
+  const services = [
+    {
+      icon: FaCode,
+      title: 'Web Development',
+      description: 'Custom websites and web applications built with modern technologies',
+      path: '/web-development',
+      features: ['Responsive Design', 'SEO Optimization', 'Performance', 'Security'],
+      color: 'from-blue-500 to-cyan-600'
+    },
+    {
+      icon: FaPalette,
+      title: 'Digital Marketing',
+      description: 'Strategic digital marketing solutions to grow your online presence',
+      path: '/digital-marketing',
+      features: ['SEO & SEM', 'Social Media', 'Content Marketing', 'Analytics'],
+      color: 'from-purple-500 to-pink-600'
+    },
+    {
+      icon: FaPalette,
+      title: 'Graphic Design',
+      description: 'Creative visual solutions that communicate your brand effectively',
+      path: '/graphic-design',
+      features: ['Logo Design', 'Brand Identity', 'Marketing Materials', 'UI/UX'],
+      color: 'from-green-500 to-emerald-600'
+    },
+    {
+      icon: FaVideo,
+      title: 'Video Production',
+      description: 'Professional video content that engages and converts your audience',
+      path: '/video-production',
+      features: ['Motion Graphics', 'Video Editing', 'Animation', 'Sound Design'],
+      color: 'from-red-500 to-pink-600'
+    },
+    {
+      icon: FaChartLine,
+      title: 'Data Analytics',
+      description: 'Transform raw data into actionable business insights',
+      path: '/data-analytics',
+      features: ['Data Visualization', 'Predictive Analytics', 'Reporting', 'KPI Tracking'],
+      color: 'from-indigo-500 to-purple-600'
+    },
+    {
+      icon: FaSpider,
+      title: 'Web Scraping',
+      description: 'Extract valuable data to drive informed business decisions',
+      path: '/web-scraping',
+      features: ['Automated Collection', 'Data Cleaning', 'Real-time Updates', 'API Integration'],
+      color: 'from-yellow-500 to-orange-600'
     }
-  }, []);
+  ];
 
   return (
-    <div className="h-screen w-full bg-white pt-10 relative">
-      {/* <div className="absolute top-0 left-0 h-full w-full z-0"> */}
-      <video
-        className="h-full w-full object-cover opacity-70"
-        src={highlevel}
-        autoPlay
-        loop
-        muted
-        ref={videoRef}
-      />
-      {/* Heading Section */}
-      <div className="absolute inset-0 flex flex-col items-start justify-center p-4 md:p-8 lg:p-14">
-        <h1 className="font-bold text-5xl pb-36 text-[#29A8AB] text-left">
-          Our Services
-        </h1>
-        {/* <p className="font-bold text-base md:text-lg lg:text-xl mt-2 md:mt-4 text-white">
-          Explore the range of services we offer
-        </p> */}
-      </div>
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white">
+      {/* Hero Section */}
+      <section className="pt-32 pb-20 text-center">
+        <div className="max-w-4xl mx-auto px-4">
+          <h1 className="text-5xl md:text-6xl font-bold mb-6 animate-fadeIn">
+            Our <span className="text-[#29A8AB]">Services</span>
+          </h1>
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed animate-slideUp">
+            We deliver comprehensive digital solutions that transform businesses and drive growth through innovative technology and creative excellence.
+          </p>
+        </div>
+      </section>
 
-      {/* Overlay Content */}
-      <div className="absolute inset-0 flex items-center px-4 z-10 mb-80">
-        <ul className="list-disc flex space-x-16 text-white text-2xl font-bold">
-          <li className="list-inside text-[#29A8AB]">
-            <Link to="/">Home</Link>
-          </li>
-          <li className="list-inside text-[#29A8AB]">
-            <Link to="/services">Services</Link>
-          </li>
-        </ul>
-      </div>
+      {/* Services Grid */}
+      <section className="py-20">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {services.map((service, index) => (
+              <Link
+                key={index}
+                to={service.path}
+                className="group bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105 animate-fadeIn"
+                style={{ animationDelay: `${index * 100}ms` }}
+              >
+                <div className={`w-16 h-16 bg-gradient-to-br ${service.color} rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                  <service.icon className="text-white text-2xl" />
+                </div>
+                
+                <h3 className="text-2xl font-bold text-white mb-4">{service.title}</h3>
+                <p className="text-gray-300 mb-6 leading-relaxed">{service.description}</p>
+                
+                <div className="space-y-2 mb-6">
+                  {service.features.map((feature, featureIndex) => (
+                    <div key={featureIndex} className="flex items-center text-sm text-gray-300">
+                      <div className="w-2 h-2 bg-[#29A8AB] rounded-full mr-3"></div>
+                      {feature}
+                    </div>
+                  ))}
+                </div>
+                
+                <div className="text-[#29A8AB] font-semibold group-hover:translate-x-2 transition-transform duration-300">
+                  Learn More →
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
 
-      <hr />
-      <div className="bg-gray-200 w-full flex flex-col sm:flex-row gap-5 relative">
-        {/* Left Section */}
-        <div className="w-full sm:w-1/2 flex-1 text-white p-6 md:p-12 lg:p-24 flex">
-          <div className="min-h-[300px] text-left hover:bg-[#29A8AB] bg-[#297475] text-white rounded-3xl hover:scale-105 shadow-lg flex flex-col justify-center items-center hover:opacity-90 opacity-70 p-6 md:p-12 flex-1">
-            <div className="w-32 h-32 flex justify-center items-center bg-white text-black rounded-full">
-              <TbSettingsCheck className="w-14 h-14" />
-            </div>
-            <h1 className="text-3xl md:text-4xl font-bold py-5">What We Do</h1>
-            <p className="py-5 text-lg md:text-xl text-center">
-              Contour Software is a global centre serving the ever-growing needs
-              of a large group of industry-specific enterprise software
-              companies.
+      {/* Process Section */}
+      <section className="py-20">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-white mb-4">Our Process</h2>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              A proven methodology that ensures successful project delivery
             </p>
           </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            {[
+              { step: '01', title: 'Discovery', description: 'Understanding your needs and objectives' },
+              { step: '02', title: 'Planning', description: 'Creating a strategic roadmap for success' },
+              { step: '03', title: 'Development', description: 'Building your solution with precision' },
+              { step: '04', title: 'Launch', description: 'Deploying and optimizing for results' }
+            ].map((process, index) => (
+              <div key={index} className="text-center animate-slideUp" style={{ animationDelay: `${index * 150}ms` }}>
+                <div className="w-20 h-20 bg-[#29A8AB] rounded-full mx-auto mb-6 flex items-center justify-center">
+                  <span className="text-white text-2xl font-bold">{process.step}</span>
+                </div>
+                <h3 className="text-xl font-bold text-white mb-2">{process.title}</h3>
+                <p className="text-gray-300">{process.description}</p>
+              </div>
+            ))}
+          </div>
         </div>
+      </section>
 
-        {/* Right Section */}
-        <div className="w-full sm:w-1/2 flex-1 text-white p-6 md:p-12 lg:p-12 flex">
-          <div className="min-h-[300px] hover:bg-[#29A8AB] bg-[#297475] text-white rounded-3xl hover:scale-105 shadow-md flex flex-col justify-center items-center hover:opacity-90 opacity-70 p-6 md:p-12 flex-1">
-            <div className="w-32 h-32 flex justify-center items-center bg-white text-black rounded-full">
-              <MdEditDocument className="w-14 h-14" />
-            </div>
-            <h1 className="text-3xl md:text-4xl font-bold py-5">
-              Requirements We Fulfill
-            </h1>
-            <p className="py-5 text-lg md:text-xl text-center">
-              We provide software development, maintenance, support, deployment
-              and implementation services, as well as ITes Staff Augmentation
-              for Systems Administration as well as full-featured G&A and S&M
-              needs.
+      {/* CTA Section */}
+      <section className="py-20">
+        <div className="max-w-4xl mx-auto text-center px-4">
+          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-12 border border-white/20">
+            <FaRocket className="text-6xl text-[#29A8AB] mx-auto mb-6" />
+            <h2 className="text-4xl font-bold text-white mb-6">Ready to Get Started?</h2>
+            <p className="text-xl text-gray-300 mb-8">
+              Let's discuss how we can help transform your business with our digital solutions.
             </p>
+            <Link
+              to="/contact"
+              className="inline-block bg-[#29A8AB] text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-[#1a6b6d] transition-colors duration-300"
+            >
+              Start Your Project
+            </Link>
           </div>
         </div>
-      </div>
-      {/* <div>
-        <ImageSwapper/>
-      </div>
-      <hr /> */}
-      {/* Text Overlay on Video */}
-      <div className="pt-10">
-        {/* Background Particles */}
-        <div className="absolute inset-0 -z-10">
-          <ParticlesComponent id="particles" />
-        </div>
-        <div className="text-white font-bold text-2xl p-12 pl-5">
-          <Link to="/services">
-          <h1>We Deliver Excellence!</h1>
-          </Link>
-          <div className="text-lg p-5">
-          <ServicesProvider/>
-          </div>
-        </div>
-      </div>
+      </section>
     </div>
   );
 };
 
 export default Services;
-

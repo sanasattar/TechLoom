@@ -1,107 +1,119 @@
-import React, { useEffect, useRef } from "react";
-import midLevel from "../assets/midLevel.mp4";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { FaUsers, FaAward, FaRocket, FaLightbulb } from 'react-icons/fa';
 
 const About = () => {
-  const videoRef = useRef(null);
+  const stats = [
+    { number: '500+', label: 'Projects Completed', icon: FaUsers },
+    { number: '50+', label: 'Happy Clients', icon: FaAward },
+    { number: '5+', label: 'Years Experience', icon: FaRocket },
+    { number: '24/7', label: 'Support Available', icon: FaLightbulb }
+  ];
 
-  useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.playbackRate = 0.5;
-      videoRef.current.play();
-    }
-  }, []);
+  const team = [
+    { name: 'John Doe', role: 'CEO & Founder', initial: 'JD' },
+    { name: 'Jane Smith', role: 'CTO', initial: 'JS' },
+    { name: 'Mike Johnson', role: 'Lead Developer', initial: 'MJ' }
+  ];
+
   return (
-    <div className="App h-screen relative text-white pt-16">
-      <div className="relative h-screen bg-black ">
-        <div className="absolute top-0 left-0 h-full w-full">
-          <video
-            className="h-full w-full object-cover opacity-70"
-            src={midLevel}
-            autoPlay
-            loop
-            muted
-            ref={videoRef}
-          />
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white">
+      {/* Hero Section */}
+      <section className="pt-32 pb-20 text-center">
+        <div className="max-w-4xl mx-auto px-4">
+          <h1 className="text-5xl md:text-6xl font-bold mb-6 animate-fadeIn">
+            About <span className="text-[#29A8AB]">TechLoom</span>
+          </h1>
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed animate-slideUp">
+            We are a team of passionate innovators dedicated to transforming businesses through cutting-edge digital solutions.
+          </p>
         </div>
+      </section>
 
-        {/* Overlay Content */}
-        <div className="absolute inset-0 flex items-center px-4 z-10 mb-80 space-x-8">
-          <div className="text-2xl font-bold">
-            <Link to="/" className="text-white hover:underline">
-              Home
-            </Link>
-          </div>
-          <div className="text-2xl font-bold">
-            <Link to="/about" className="text-white hover:underline">
-              About Us
-            </Link>
+      {/* Mission & Vision */}
+      <section className="py-20">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Left Column */}
+            <div className="space-y-8">
+              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 animate-slideLeft">
+                <h2 className="text-3xl font-bold text-white mb-4">Our Mission</h2>
+                <p className="text-gray-300 text-lg leading-relaxed">
+                  To empower businesses with innovative digital solutions that drive growth,
+                  enhance user experiences, and create lasting impact in the digital landscape.
+                </p>
+              </div>
+
+              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 animate-slideLeft delay-200">
+                <h2 className="text-3xl font-bold text-white mb-4">Our Vision</h2>
+                <p className="text-gray-300 text-lg leading-relaxed">
+                  To be the leading force in digital transformation, setting new standards
+                  for excellence in web development, design, and digital innovation.
+                </p>
+              </div>
+            </div>
+
+            {/* Right Column - Stats */}
+            <div className="grid grid-cols-2 gap-6">
+              {stats.map((stat, index) => (
+                <div key={index} className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-center border border-white/20 animate-slideRight" style={{ animationDelay: `${index * 100}ms` }}>
+                  <div className="text-4xl font-bold text-[#29A8AB] mb-2">{stat.number}</div>
+                  <div className="text-gray-300">{stat.label}</div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* About Us Section */}
-      <div className="relative bg-white rounded-lg shadow-lg p-8 mt-8 max-w-4xl mx-auto">
-        <section className="mb-8">
-          <h2 className="text-3xl font-semibold text-gray-800 mb-4">
-            Our Story
-          </h2>
-          <p className="text-lg text-gray-600">
-            We are a passionate team committed to providing the best services to
-            help businesses grow. With years of experience in our respective
-            fields, we aim to create innovative solutions that drive results and
-            bring success to our clients.
-          </p>
-        </section>
+      {/* Team Section */}
+      <section className="py-20">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-white mb-4">Our Team</h2>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              Meet the passionate professionals behind TechLoom's success
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {team.map((member, index) => (
+              <div key={index} className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 text-center animate-fadeIn" style={{ animationDelay: `${index * 200}ms` }}>
+                <div className="w-24 h-24 bg-[#29A8AB] rounded-full mx-auto mb-6 flex items-center justify-center">
+                  <span className="text-white text-3xl font-bold">{member.initial}</span>
+                </div>
+                <h3 className="text-2xl font-bold text-white mb-2">{member.name}</h3>
+                <p className="text-gray-300">{member.role}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-        <section className="mb-8">
-          <h2 className="text-3xl font-semibold text-gray-800 mb-4">
-            Our Mission
-          </h2>
-          <p className="text-lg text-gray-600">
-            Our mission is to empower businesses by delivering cutting-edge
-            solutions that not only solve problems but also add significant
-            value. We strive for excellence, innovation, and reliability in
-            everything we do.
-          </p>
-        </section>
-
-        <section className="mb-8">
-          <h2 className="text-3xl font-semibold text-gray-800 mb-4">
-            Our Vision
-          </h2>
-          <p className="text-lg text-gray-600">
-            Our vision is to become a leader in the industry, known for our
-            creativity, dedication, and commitment to helping businesses grow
-            and thrive. We envision a future where our solutions drive positive
-            change and create lasting impact.
-          </p>
-        </section>
-
-        <section className="mb-8">
-          <h2 className="text-3xl font-semibold text-gray-800 mb-4">
-            Our Values
-          </h2>
-          <ul className="list-disc pl-6 text-lg text-gray-600 space-y-2">
-            <li>
-              Integrity: We believe in honesty and transparency in all our
-              interactions.
-            </li>
-            <li>
-              Collaboration: We value teamwork and work closely with our clients
-              to achieve success.
-            </li>
-            <li>
-              Innovation: We are always looking for new ways to improve and
-              evolve.
-            </li>
-            <li>
-              Excellence: We strive to deliver the highest quality in everything
-              we do.
-            </li>
-          </ul>
-        </section>
-      </div>
+      {/* Values Section */}
+      <section className="py-20">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-white mb-4">Our Values</h2>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              { title: 'Innovation', description: 'Pushing boundaries with creative solutions' },
+              { title: 'Excellence', description: 'Delivering quality in everything we do' },
+              { title: 'Integrity', description: 'Building trust through honest partnerships' },
+              { title: 'Growth', description: 'Fostering continuous improvement and learning' }
+            ].map((value, index) => (
+              <div key={index} className="text-center animate-fadeIn" style={{ animationDelay: `${index * 150}ms` }}>
+                <div className="w-16 h-16 bg-[#29A8AB] rounded-full mx-auto mb-4 flex items-center justify-center">
+                  <span className="text-white text-2xl">✨</span>
+                </div>
+                <h3 className="text-xl font-bold text-white mb-2">{value.title}</h3>
+                <p className="text-gray-300">{value.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
     </div>
   );
 };

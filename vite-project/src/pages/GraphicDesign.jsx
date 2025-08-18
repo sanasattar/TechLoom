@@ -1,24 +1,24 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaSpider, FaDatabase, FaRocket, FaShieldAlt, FaSync, FaChartBar } from 'react-icons/fa';
+import { FaPalette, FaEye, FaLightbulb, FaRocket, FaUsers, FaStar } from 'react-icons/fa';
 
-const WebScraping = () => {
+const GraphicDesign = () => {
   const services = [
-    { icon: FaSpider, title: 'Data Extraction', description: 'Automated collection from websites' },
-    { icon: FaDatabase, title: 'Data Cleaning', description: 'Processing and organizing raw data' },
-    { icon: FaRocket, title: 'Real-time Updates', description: 'Live data monitoring and updates' },
-    { icon: FaShieldAlt, title: 'API Integration', description: 'Seamless data pipeline integration' },
-    { icon: FaSync, title: 'Automated Workflows', description: 'Scheduled data collection processes' },
-    { icon: FaChartBar, title: 'Data Analysis', description: 'Insights from collected information' }
+    { icon: FaPalette, title: 'Logo Design', description: 'Unique and memorable brand identities' },
+    { icon: FaEye, title: 'Brand Identity', description: 'Complete visual brand systems' },
+    { icon: FaLightbulb, title: 'Marketing Materials', description: 'Brochures, flyers, and campaigns' },
+    { icon: FaRocket, title: 'UI/UX Design', description: 'User interface and experience design' },
+    { icon: FaUsers, title: 'Social Media Graphics', description: 'Engaging social content' },
+    { icon: FaStar, title: 'Print Design', description: 'Professional print materials' }
   ];
 
   const benefits = [
-    'Access to valuable market intelligence and insights',
-    'Automated data collection saves time and resources',
-    'Real-time monitoring of competitors and markets',
-    'Data-driven decision making capabilities',
-    'Scalable solutions for growing data needs',
-    'Compliance with web scraping best practices'
+    'Professional brand recognition and trust',
+    'Consistent visual communication',
+    'Increased customer engagement',
+    'Memorable brand experiences',
+    'Competitive market advantage',
+    'Scalable design systems'
   ];
 
   return (
@@ -26,14 +26,14 @@ const WebScraping = () => {
       {/* Hero Section */}
       <section className="pt-32 pb-20 text-center">
         <div className="max-w-4xl mx-auto px-4">
-          <div className="mb-8 animate-fadeIn">
-            <FaSpider className="text-6xl text-[#29A8AB] mx-auto" />
+          <div className="mb-8">
+            <FaPalette className="text-6xl text-[#29A8AB] mx-auto" />
           </div>
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 animate-slideUp">
-            Web <span className="text-[#29A8AB]">Scraping</span>
+          <h1 className="text-5xl md:text-6xl font-bold mb-6">
+            Graphic <span className="text-[#29A8AB]">Design</span>
           </h1>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed animate-slideUp delay-200">
-            Extract valuable data from the web to drive informed business decisions and gain competitive advantages.
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            Creative visual solutions that communicate your brand story and captivate your audience.
           </p>
         </div>
       </section>
@@ -42,15 +42,15 @@ const WebScraping = () => {
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-white mb-4">Our Web Scraping Services</h2>
+            <h2 className="text-4xl font-bold text-white mb-4">Our Graphic Design Services</h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Professional data extraction solutions that provide you with the information you need to succeed.
+              From concept to creation, we design visuals that make your brand unforgettable.
             </p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => (
-              <div key={index} className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 text-center animate-fadeIn" style={{ animationDelay: `${index * 100}ms` }}>
+              <div key={index} className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 text-center">
                 <div className="w-16 h-16 bg-[#29A8AB] rounded-lg mx-auto mb-6 flex items-center justify-center">
                   <service.icon className="text-white text-2xl" />
                 </div>
@@ -66,14 +66,14 @@ const WebScraping = () => {
       <section className="py-20 bg-white/5">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-white mb-4">Why Web Scraping Matters</h2>
+            <h2 className="text-4xl font-bold text-white mb-4">Why Great Design Matters</h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Access to the right data at the right time can give you a significant competitive edge.
+              Professional design creates lasting impressions and builds trust with your audience.
             </p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="animate-slideLeft">
+            <div>
               <h3 className="text-2xl font-bold text-white mb-6">Key Benefits</h3>
               <div className="space-y-4">
                 {benefits.map((benefit, index) => (
@@ -85,13 +85,13 @@ const WebScraping = () => {
               </div>
             </div>
             
-            <div className="animate-slideRight">
+            <div>
               <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
-                <h3 className="text-2xl font-bold text-white mb-6">Our Scraping Approach</h3>
+                <h3 className="text-2xl font-bold text-white mb-6">Our Design Process</h3>
                 <div className="space-y-4 text-gray-300">
-                  <p>We use ethical scraping practices that respect website terms and robots.txt files.</p>
-                  <p>Our solutions are scalable and can handle large volumes of data efficiently.</p>
-                  <p>We ensure data quality and provide clean, structured information ready for analysis.</p>
+                  <p>We start by understanding your brand, target audience, and design objectives.</p>
+                  <p>Our creative team develops concepts that align with your brand identity and goals.</p>
+                  <p>We refine and perfect every detail until you're completely satisfied with the result.</p>
                 </div>
               </div>
             </div>
@@ -103,20 +103,20 @@ const WebScraping = () => {
       <section className="py-20">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-white mb-4">Our Scraping Process</h2>
+            <h2 className="text-4xl font-bold text-white mb-4">Our Design Process</h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              A systematic approach that ensures reliable and ethical data collection.
+              A creative journey that transforms ideas into stunning visual realities.
             </p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {[
-              { step: '01', title: 'Analysis', description: 'Understanding your data requirements' },
-              { step: '02', title: 'Development', description: 'Building custom scraping solutions' },
-              { step: '03', title: 'Testing', description: 'Ensuring reliability and accuracy' },
-              { step: '04', title: 'Deployment', description: 'Launching and monitoring systems' }
+              { step: '01', title: 'Discovery', description: 'Understanding your brand and goals' },
+              { step: '02', title: 'Concept', description: 'Creative brainstorming and ideation' },
+              { step: '03', title: 'Design', description: 'Bringing concepts to life' },
+              { step: '04', title: 'Refinement', description: 'Perfecting every detail' }
             ].map((process, index) => (
-              <div key={index} className="text-center animate-slideUp" style={{ animationDelay: `${index * 150}ms` }}>
+              <div key={index} className="text-center">
                 <div className="w-20 h-20 bg-[#29A8AB] rounded-full mx-auto mb-6 flex items-center justify-center">
                   <span className="text-white text-2xl font-bold">{process.step}</span>
                 </div>
@@ -132,9 +132,9 @@ const WebScraping = () => {
       <section className="py-20">
         <div className="max-w-4xl mx-auto text-center px-4">
           <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-12 border border-white/20">
-            <h2 className="text-4xl font-bold text-white mb-6">Ready to Extract Valuable Data?</h2>
+            <h2 className="text-4xl font-bold text-white mb-6">Ready to Transform Your Brand?</h2>
             <p className="text-xl text-gray-300 mb-8">
-              Let's build custom web scraping solutions that give you the data insights you need to succeed.
+              Let's create stunning visuals that tell your story and connect with your audience.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
@@ -157,4 +157,4 @@ const WebScraping = () => {
   );
 };
 
-export default WebScraping;
+export default GraphicDesign;

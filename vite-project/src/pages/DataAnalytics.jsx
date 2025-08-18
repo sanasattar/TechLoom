@@ -1,24 +1,24 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaSpider, FaDatabase, FaRocket, FaShieldAlt, FaSync, FaChartBar } from 'react-icons/fa';
+import { FaChartLine, FaBrain, FaSearch, FaRocket, FaUsers, FaLightbulb } from 'react-icons/fa';
 
-const WebScraping = () => {
+const DataAnalytics = () => {
   const services = [
-    { icon: FaSpider, title: 'Data Extraction', description: 'Automated collection from websites' },
-    { icon: FaDatabase, title: 'Data Cleaning', description: 'Processing and organizing raw data' },
-    { icon: FaRocket, title: 'Real-time Updates', description: 'Live data monitoring and updates' },
-    { icon: FaShieldAlt, title: 'API Integration', description: 'Seamless data pipeline integration' },
-    { icon: FaSync, title: 'Automated Workflows', description: 'Scheduled data collection processes' },
-    { icon: FaChartBar, title: 'Data Analysis', description: 'Insights from collected information' }
+    { icon: FaChartLine, title: 'Data Visualization', description: 'Clear insights through charts and graphs' },
+    { icon: FaBrain, title: 'Predictive Analytics', description: 'Future trends and forecasting' },
+    { icon: FaSearch, title: 'Data Mining', description: 'Extracting valuable patterns and insights' },
+    { icon: FaRocket, title: 'Performance Tracking', description: 'KPI monitoring and optimization' },
+    { icon: FaUsers, title: 'Customer Analytics', description: 'Understanding customer behavior' },
+    { icon: FaLightbulb, title: 'Business Intelligence', description: 'Strategic decision support' }
   ];
 
   const benefits = [
-    'Access to valuable market intelligence and insights',
-    'Automated data collection saves time and resources',
-    'Real-time monitoring of competitors and markets',
-    'Data-driven decision making capabilities',
-    'Scalable solutions for growing data needs',
-    'Compliance with web scraping best practices'
+    'Data-driven decision making for better results',
+    'Improved operational efficiency and cost savings',
+    'Better understanding of customer needs and behavior',
+    'Competitive advantage through insights',
+    'Predictive capabilities for future planning',
+    'Measurable ROI and performance tracking'
   ];
 
   return (
@@ -27,13 +27,13 @@ const WebScraping = () => {
       <section className="pt-32 pb-20 text-center">
         <div className="max-w-4xl mx-auto px-4">
           <div className="mb-8 animate-fadeIn">
-            <FaSpider className="text-6xl text-[#29A8AB] mx-auto" />
+            <FaChartLine className="text-6xl text-[#29A8AB] mx-auto" />
           </div>
           <h1 className="text-5xl md:text-6xl font-bold mb-6 animate-slideUp">
-            Web <span className="text-[#29A8AB]">Scraping</span>
+            Data <span className="text-[#29A8AB]">Analytics</span>
           </h1>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed animate-slideUp delay-200">
-            Extract valuable data from the web to drive informed business decisions and gain competitive advantages.
+            Transform raw data into actionable business insights that drive growth and innovation.
           </p>
         </div>
       </section>
@@ -42,9 +42,9 @@ const WebScraping = () => {
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-white mb-4">Our Web Scraping Services</h2>
+            <h2 className="text-4xl font-bold text-white mb-4">Our Data Analytics Services</h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Professional data extraction solutions that provide you with the information you need to succeed.
+              Comprehensive analytics solutions that turn data into your competitive advantage.
             </p>
           </div>
           
@@ -66,9 +66,9 @@ const WebScraping = () => {
       <section className="py-20 bg-white/5">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-white mb-4">Why Web Scraping Matters</h2>
+            <h2 className="text-4xl font-bold text-white mb-4">Why Data Analytics Matters</h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Access to the right data at the right time can give you a significant competitive edge.
+              Data-driven insights are the key to making informed business decisions and staying ahead of the competition.
             </p>
           </div>
           
@@ -87,11 +87,11 @@ const WebScraping = () => {
             
             <div className="animate-slideRight">
               <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
-                <h3 className="text-2xl font-bold text-white mb-6">Our Scraping Approach</h3>
+                <h3 className="text-2xl font-bold text-white mb-6">Our Analytics Approach</h3>
                 <div className="space-y-4 text-gray-300">
-                  <p>We use ethical scraping practices that respect website terms and robots.txt files.</p>
-                  <p>Our solutions are scalable and can handle large volumes of data efficiently.</p>
-                  <p>We ensure data quality and provide clean, structured information ready for analysis.</p>
+                  <p>We start by understanding your business goals and data requirements.</p>
+                  <p>Our team analyzes your data to uncover hidden patterns and insights.</p>
+                  <p>We provide clear, actionable recommendations that drive results.</p>
                 </div>
               </div>
             </div>
@@ -103,18 +103,18 @@ const WebScraping = () => {
       <section className="py-20">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-white mb-4">Our Scraping Process</h2>
+            <h2 className="text-4xl font-bold text-white mb-4">Our Analytics Process</h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              A systematic approach that ensures reliable and ethical data collection.
+              A systematic approach that transforms data into actionable business intelligence.
             </p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {[
-              { step: '01', title: 'Analysis', description: 'Understanding your data requirements' },
-              { step: '02', title: 'Development', description: 'Building custom scraping solutions' },
-              { step: '03', title: 'Testing', description: 'Ensuring reliability and accuracy' },
-              { step: '04', title: 'Deployment', description: 'Launching and monitoring systems' }
+              { step: '01', title: 'Discovery', description: 'Understanding your data and objectives' },
+              { step: '02', title: 'Analysis', description: 'Data processing and pattern identification' },
+              { step: '03', title: 'Insights', description: 'Generating actionable recommendations' },
+              { step: '04', title: 'Implementation', description: 'Supporting decision making and optimization' }
             ].map((process, index) => (
               <div key={index} className="text-center animate-slideUp" style={{ animationDelay: `${index * 150}ms` }}>
                 <div className="w-20 h-20 bg-[#29A8AB] rounded-full mx-auto mb-6 flex items-center justify-center">
@@ -132,9 +132,9 @@ const WebScraping = () => {
       <section className="py-20">
         <div className="max-w-4xl mx-auto text-center px-4">
           <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-12 border border-white/20">
-            <h2 className="text-4xl font-bold text-white mb-6">Ready to Extract Valuable Data?</h2>
+            <h2 className="text-4xl font-bold text-white mb-6">Ready to Unlock Your Data?</h2>
             <p className="text-xl text-gray-300 mb-8">
-              Let's build custom web scraping solutions that give you the data insights you need to succeed.
+              Let's transform your data into powerful insights that drive business growth and success.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
@@ -157,4 +157,4 @@ const WebScraping = () => {
   );
 };
 
-export default WebScraping;
+export default DataAnalytics;

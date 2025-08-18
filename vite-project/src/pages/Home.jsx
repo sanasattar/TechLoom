@@ -1,287 +1,102 @@
-import React, { useState, useEffect } from "react";
-import Main from "./Main";
-import StatsSection from "../component/StatSection";
-import ParticlesComponent from "../component/ParticlesComponent";
-import ServicesProvider from "../component/ServicesProvider";
-import ImageSwapper from "../component/ImageSwapper";
-import { FaRocket, FaLightbulb, FaUsers, FaAward, FaStar } from "react-icons/fa";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { FaRocket, FaCode, FaPalette, FaChartLine, FaVideo, FaSpider } from 'react-icons/fa';
 
 const Home = () => {
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const timer = setTimeout(() => setIsVisible(true), 100);
-    return () => clearTimeout(timer);
-  }, []);
+  const services = [
+    { icon: FaCode, title: 'Web Development', path: '/web-development', color: 'from-blue-500 to-cyan-600' },
+    { icon: FaPalette, title: 'Digital Marketing', path: '/digital-marketing', color: 'from-purple-500 to-pink-600' },
+    { icon: FaPalette, title: 'Graphic Design', path: '/graphic-design', color: 'from-green-500 to-emerald-600' },
+    { icon: FaVideo, title: 'Video Production', path: '/video-production', color: 'from-red-500 to-pink-600' },
+    { icon: FaChartLine, title: 'Data Analytics', path: '/data-analytics', color: 'from-indigo-500 to-purple-600' },
+    { icon: FaSpider, title: 'Web Scraping', path: '/web-scraping', color: 'from-yellow-500 to-orange-600' }
+  ];
 
   return (
-    <div className="flex-col max-h-screen relative overflow-x-hidden">
-      {/* Main Section */}
-      <div>
-        <Main />
-      </div>
-
-      {/* Stats Section */}
-      <div className="w-full bg-gradient-to-r from-white to-gray-50 py-8 md:py-12">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-            {/* Left Side */}
-            <div className={`text-center lg:text-left transition-all duration-1000 delay-300 ${
-              isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
-            }`}>
-              <h3 className="font-bold text-3xl md:text-4xl lg:text-5xl text-[#29A8AB] mb-6">
-                Crafting Digital Excellence
-              </h3>
-              <p className="text-gray-600 text-xl md:text-2xl leading-relaxed">
-                We transform visions into powerful digital experiences that drive growth and innovation
-              </p>
-            </div>
-
-            {/* Right Side */}
-            <div className={`transition-all duration-1000 delay-500 ${
-              isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'
-            }`}>
-              <StatsSection />
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* About Section - Enhanced Cards */}
-      <div className="py-12 md:py-20 bg-gradient-to-br from-gray-900 via-gray-800 to-black relative overflow-hidden">
-        {/* Background Elements */}
+    <div className="min-h-screen">
+      {/* Hero Section */}
+      <section className="relative h-screen flex items-center justify-center bg-gradient-to-br from-[#29A8AB] to-[#1a6b6d] overflow-hidden">
+        {/* Animated Background */}
         <div className="absolute inset-0">
-          <div className="floating-shape shape1"></div>
-          <div className="floating-shape shape2"></div>
-          <div className="floating-shape shape3"></div>
+          <div className="absolute top-20 left-20 w-32 h-32 border-2 border-white/20 rounded-full animate-pulse"></div>
+          <div className="absolute top-40 right-32 w-24 h-24 bg-white/10 rounded-lg transform rotate-45 animate-pulse delay-1000"></div>
+          <div className="absolute bottom-32 left-32 w-40 h-40 border border-white/20 rounded-full animate-pulse delay-2000"></div>
         </div>
 
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-            {/* Left Side - Enhanced Cards */}
-            <div className="space-y-6">
-              {/* Card 1 */}
-              <div className={`card hover-lift transition-all duration-700 delay-100 ${
-                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-              }`}>
-                <div className="flex items-start space-x-4">
-                  <div className="flex-shrink-0">
-                    <div className="w-12 h-12 bg-gradient-to-br from-[#29A8AB] to-[#6AD6D3] rounded-full flex items-center justify-center">
-                      <FaRocket className="text-white text-xl" />
-                    </div>
-                  </div>
-                                     <div>
-                     <h3 className="text-white text-xl md:text-2xl font-bold mb-3">
-                       Innovation at Our Core
-                     </h3>
-                     <p className="text-white/80 text-base md:text-lg leading-relaxed">
-                       We specialize in creating cutting-edge digital solutions that combine 
-                       stunning design with powerful functionality, delivering experiences 
-                       that captivate and convert.
-                     </p>
-                   </div>
-                </div>
-              </div>
-
-              {/* Card 2 */}
-              <div className={`card hover-lift transition-all duration-700 delay-200 ${
-                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-              }`}>
-                <div className="flex items-start space-x-4">
-                  <div className="flex-shrink-0">
-                    <div className="w-12 h-12 bg-gradient-to-br from-[#6AD6D3] to-[#29A8AB] rounded-full flex items-center justify-center">
-                      <FaLightbulb className="text-white text-xl" />
-                    </div>
-                  </div>
-                                     <div>
-                     <h3 className="text-white text-xl md:text-2xl font-bold mb-3">
-                       Technology That Transforms
-                     </h3>
-                     <p className="text-white/80 text-base md:text-lg leading-relaxed">
-                       From responsive websites to custom applications, we leverage 
-                       the latest technologies to create solutions that drive real 
-                       business results and exceed expectations.
-                     </p>
-                   </div>
-                </div>
-              </div>
-
-              {/* Card 3 */}
-              <div className={`card hover-lift transition-all duration-700 delay-300 ${
-                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-              }`}>
-                <div className="flex items-start space-x-4">
-                  <div className="flex-shrink-0">
-                    <div className="w-12 h-12 bg-gradient-to-br from-[#29A8AB] to-[#4FD1C7] rounded-full flex items-center justify-center">
-                      <FaUsers className="text-white text-xl" />
-                    </div>
-                  </div>
-                                     <div>
-                     <h3 className="text-white text-xl md:text-2xl font-bold mb-3">
-                       Partnership-Driven Success
-                     </h3>
-                     <p className="text-white/80 text-base md:text-lg leading-relaxed">
-                       We collaborate closely with our clients to understand their vision 
-                       and deliver solutions that not only meet but exceed their goals, 
-                       ensuring lasting success in the digital landscape.
-                     </p>
-                   </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Right Side - Enhanced ImageSwapper */}
-            <div className={`transition-all duration-700 delay-400 ${
-              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-            }`}>
-              <div className="relative">
-                <div className="bg-white rounded-3xl p-6 md:p-8 shadow-2xl hover:scale-105 transition-transform duration-500">
-                  <ImageSwapper />
-                </div>
-                {/* Floating Elements */}
-                <div className="absolute -top-4 -right-4 w-8 h-8 bg-[#29A8AB] rounded-full flex items-center justify-center">
-                  <FaAward className="text-white text-sm" />
-                </div>
-                <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-[#6AD6D3] rounded-full animate-pulse"></div>
-              </div>
-            </div>
+        {/* Content */}
+        <div className="relative z-10 text-center text-white px-4 max-w-6xl mx-auto">
+          <div className="mb-8">
+            <FaRocket className="text-6xl mx-auto mb-4 animate-bounce" />
+          </div>
+          
+          <h1 className="text-5xl md:text-7xl font-bold mb-6">
+            TechLoom
+          </h1>
+          
+          <h2 className="text-2xl md:text-4xl font-light mb-6">
+            Digital Excellence • Creative Innovation • Future Technology
+          </h2>
+          
+          <p className="text-lg md:text-xl mb-8 max-w-3xl mx-auto leading-relaxed">
+            Transforming ideas into digital reality with cutting-edge solutions that drive growth and innovation in the modern business landscape.
+          </p>
+          
+          <div>
+            <Link
+              to="/services"
+              className="inline-block bg-white text-[#1a6b6d] px-8 py-4 rounded-lg font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+            >
+              Start Your Journey
+            </Link>
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* Services Section */}
-      <div className="min-h-screen w-full flex flex-col items-center justify-center py-12 md:py-20 relative bg-gradient-to-br from-gray-900 via-gray-800 to-black">
-        {/* Particles Background */}
-        <div className="absolute inset-0 -z-10">
-          <ParticlesComponent />
-        </div>
-
-        {/* Services Heading */}
-        <div className={`text-center mb-12 transition-all duration-1000 delay-500 ${
-          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-        }`}>
-                     <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-8 text-white">
-             Our{" "}
-             <span className="text-gradient">Services</span>
-           </h2>
-           <p className="text-center text-xl sm:text-2xl md:text-3xl max-w-4xl mx-auto text-white/80 leading-relaxed font-light">
-             Comprehensive digital solutions designed to elevate your business
-           </p>
-        </div>
-
-        {/* Services Cards */}
-        <div className="w-full">
-          <ServicesProvider />
-        </div>
-      </div>
-
-      {/* Enhanced Testimonials Section */}
-      <div className="py-16 md:py-24 bg-gradient-to-r from-gray-100 to-white relative overflow-hidden">
-        <div className="container mx-auto px-4">
-          <div className={`text-center mb-12 transition-all duration-1000 delay-300 ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          }`}>
-                         <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-gray-800">
-               Client{" "}
-               <span className="text-gradient">Success Stories</span>
-             </h2>
-             <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto font-light">
-               Real results from real partnerships
-             </p>
+      {/* Services Preview */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-800 mb-4">Our Services</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              We deliver comprehensive digital solutions that transform businesses and drive growth.
+            </p>
           </div>
-
+          
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              {
-                quote: "TechLoom transformed our online presence completely. Their web development services exceeded all our expectations!",
-                name: "Sarah Johnson",
-                position: "CEO, Digital Solutions Inc.",
-                rating: 5
-              },
-              {
-                quote: "The social media management service has increased our engagement by 300%. Absolutely incredible results!",
-                name: "Michael Chen",
-                position: "Marketing Director, TechStart",
-                rating: 5
-              },
-              {
-                quote: "Professional, timely, and results-driven. The video editing quality is outstanding. Highly recommend!",
-                name: "Emily Rodriguez",
-                position: "Creative Director, MediaPro",
-                rating: 5
-              },
-            ].map((testimonial, index) => (
-              <div
+            {services.map((service, index) => (
+              <Link
                 key={index}
-                className={`card hover-lift transition-all duration-700 delay-${index * 200} ${
-                  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-                }`}
+                to={service.path}
+                className="group bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
               >
-                <div className="flex flex-col h-full">
-                  {/* Rating */}
-                  <div className="flex mb-4">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <FaStar key={i} className="text-yellow-400 text-lg" />
-                    ))}
-                  </div>
-                  
-                  {/* Quote */}
-                  <p className="text-gray-700 text-lg mb-6 flex-grow leading-relaxed">
-                    "{testimonial.quote}"
-                  </p>
-                  
-                  {/* Author */}
-                  <div className="border-t border-gray-200 pt-4">
-                    <h4 className="font-bold text-[#29A8AB] text-lg">
-                      {testimonial.name}
-                    </h4>
-                    <p className="text-gray-600 text-sm">
-                      {testimonial.position}
-                    </p>
-                  </div>
+                <div className={`w-16 h-16 bg-gradient-to-br ${service.color} rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                  <service.icon className="text-white text-2xl" />
                 </div>
-              </div>
+                <h3 className="text-xl font-bold text-gray-800 mb-4">{service.title}</h3>
+                <p className="text-gray-600">
+                  Professional {service.title.toLowerCase()} services to elevate your business.
+                </p>
+              </Link>
             ))}
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* Call to Action Section */}
-      <div className="py-16 md:py-24 bg-gradient-to-r from-[#29A8AB] to-[#6AD6D3] relative overflow-hidden">
-        <div className="absolute inset-0">
-          <div className="floating-shape shape1"></div>
-          <div className="floating-shape shape2"></div>
+      {/* CTA Section */}
+      <section className="py-20 bg-gradient-to-r from-[#29A8AB] to-[#1a6b6d] text-white">
+        <div className="max-w-4xl mx-auto text-center px-4">
+          <h2 className="text-4xl font-bold mb-6">Ready to Transform Your Business?</h2>
+          <p className="text-xl mb-8 opacity-90">
+            Let's create something extraordinary together
+          </p>
+          <Link
+            to="/contact"
+            className="inline-block bg-white text-[#1a6b6d] px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors duration-300"
+          >
+            Get Started Today
+          </Link>
         </div>
-        
-        <div className="container mx-auto px-4 text-center relative z-10">
-          <div className={`max-w-4xl mx-auto transition-all duration-1000 delay-500 ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          }`}>
-                         <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-8">
-               Ready to Transform Your Business?
-             </h2>
-             <p className="text-2xl md:text-3xl text-white/90 mb-10 leading-relaxed font-light">
-               Let's create something extraordinary together
-             </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <a
-                href="/contact"
-                className="bg-white text-[#29A8AB] font-bold py-4 px-8 rounded-full hover:scale-105 transition-transform duration-300 flex items-center gap-2 text-lg"
-              >
-                Get Started Today
-                <FaRocket className="text-sm" />
-              </a>
-              <a
-                href="/about"
-                className="border-2 border-white text-white font-bold py-4 px-8 rounded-full hover:bg-white hover:text-[#29A8AB] transition-all duration-300 flex items-center gap-2 text-lg"
-              >
-                Learn More About Us
-                <FaUsers className="text-sm" />
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
+      </section>
     </div>
   );
 };
